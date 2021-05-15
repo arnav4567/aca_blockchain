@@ -1,3 +1,4 @@
+//generate key pair
 var crypto = require('crypto');
 const path = require('path');
 var fs = require('fs');
