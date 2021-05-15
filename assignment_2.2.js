@@ -1,3 +1,4 @@
+//encrypting a text
 const readline = require('readline-sync');
 var crypto = require('crypto');
 //const path = require('path');
