@@ -1,3 +1,4 @@
+//to see if decrypted and normal messages are verified
 const readline = require('readline-sync');
 var crypto = require('crypto');
 //const path = require('path');
