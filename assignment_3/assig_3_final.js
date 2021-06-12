@@ -64,4 +64,4 @@ var finans =  stamp + inpp + itemp + outt + otemp;
 var ans = SHA256(finans).toString();
 
 var topath = "./"+ans+".dat";
-fs.writeFileSync(topath, ans,"utf8");
+fs.writeFileSync(topath, finans,"utf8");
