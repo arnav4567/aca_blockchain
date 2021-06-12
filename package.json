@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
   "_from": "crypto-js",
   "_id": "crypto-js@4.0.0",
   "_inBundle": false,
@@ -94,5 +93,4 @@
     "url": "https://github.com/arnav4567/aca_blockchain/issues"
   },
   "homepage": "https://github.com/arnav4567/aca_blockchain#readme"
->>>>>>> b0f36ca (assignment 3)
 }
