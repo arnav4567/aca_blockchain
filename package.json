@@ -64,33 +64,4 @@
     "url": "git+ssh://git@github.com/brix/crypto-js.git"
   },
   "version": "4.0.0"
-=======
-  "name": "aca_blockchain",
-  "version": "1.0.0",
-  "description": "",
-  "main": "assignment_2.js",
-  "dependencies": {
-    "crypto": "^1.0.1",
-    "crypto-js": "^4.0.0",
-    "fs": "0.0.1-security",
-    "nano-time": "^1.0.0",
-    "node-rsa": "^1.1.1",
-    "path": "^0.12.7",
-    "readline-sync": "^1.4.10"
-  },
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/arnav4567/aca_blockchain.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/arnav4567/aca_blockchain/issues"
-  },
-  "homepage": "https://github.com/arnav4567/aca_blockchain#readme"
 }
