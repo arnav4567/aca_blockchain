@@ -1,0 +1,15 @@
+INPUT FOR ASSIGNMENT 3
+
+PS C:\Users\arnav\Desktop\duplicate\assignment_3> node assig_3_final.js
+Enter the number of inputs : 1
+Input  1 :
+Transaction ID : 1
+Index : 1
+Length of signature : 5
+Signature : qw8em
+Enter the number of outputs : 1
+Output  1 :
+Number of coins : 7
+Length of public key : 278
+Public key path : C:\Users\arnav\Desktop\duplicate\assignment_2\Keys\public.pem
+PS C:\Users\arnav\Desktop\duplicate\assignment_3>
