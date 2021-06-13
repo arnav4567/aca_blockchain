@@ -62,6 +62,6 @@ var finans =  stamp + inpp + itemp + outt + otemp;
 //console.log(finans);
 
 var ans = SHA256(finans).toString();
-
+//console.log(pubkey.length)
 var topath = "./"+ans+".dat";
 fs.writeFileSync(topath, finans,"utf8");
