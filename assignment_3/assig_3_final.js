@@ -76,7 +76,6 @@ inpp+=to32binary(n_inp);
 var outt = to32binary(n_out);
 
 var finans =  stamp + inpp + itemp + outt + otemp;
-//console.log(finans);
 
 var ans = SHA256(finans).toString();
 var topath = "./"+ans+".dat";
