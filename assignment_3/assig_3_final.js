@@ -21,6 +21,21 @@ function to64binary(n){
     return temp;
 }
 
+var convertBase = function () {
+    function convertBase(baseFrom, baseTo) {
+        return function (num) {
+            return parseInt(num, baseFrom).toString(baseTo);
+        };
+    }
+    convertBase.bin2dec = convertBase(2, 10);
+    convertBase.bin2hex = convertBase(2, 16);
+    convertBase.dec2bin = convertBase(10, 2);
+    convertBase.dec2hex = convertBase(10, 16);
+    convertBase.hex2bin = convertBase(16, 2);
+    convertBase.hex2dec = convertBase(16, 10);
+    return convertBase;
+}();
+
 var n_inp = readline.question("Enter the number of inputs : ");
 var itemp = '';
 for(let i=1;i<=n_inp;i++){
@@ -30,10 +45,13 @@ for(let i=1;i<=n_inp;i++){
     var length_sig = readline.question("Length of signature : ");
     var signature = readline.question("Signature : ");
 
-    itemp+=transaction_id.split('').map(c => c.charCodeAt().toString(2).padStart(8, '0')).join('');
+    for(let i=0;i<256-convertBase.hex2bin(transaction_id).length;i++)
+        itemp+='0';
+    itemp+=convertBase.hex2bin(transaction_id);
+    
     itemp+=to32binary(ind);
     itemp+=to32binary(length_sig);
-    itemp+=signature.split('').map(c => c.charCodeAt().toString(2).padStart(8, '0')).join('');
+    itemp+=convertBase.hex2bin(signature);
 }
 
 var n_out = readline.question("Enter the number of outputs : ");
@@ -48,7 +66,6 @@ for(let i=1;i<=n_out;i++){
     otemp+=to32binary(len);
     var pubkey = fs.readFileSync(p_keypath, 'utf8');
     otemp+= pubkey.split('').map(c => c.charCodeAt().toString(2).padStart(8, '0')).join('');
-
 }
 
 var tm = BigInt(now());
@@ -62,6 +79,5 @@ var finans =  stamp + inpp + itemp + outt + otemp;
 //console.log(finans);
 
 var ans = SHA256(finans).toString();
-//console.log(pubkey.length)
 var topath = "./"+ans+".dat";
 fs.writeFileSync(topath, finans,"utf8");
