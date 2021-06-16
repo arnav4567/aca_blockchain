@@ -1,0 +1,20 @@
+#SAMPLE INPUT FOR ASSIGNMENT 3
+
+PS C:\Users\arnav\Desktop\duplicate\assignment_3> node assig_3_final.js
+Enter the number of inputs : 1
+Input  1 :
+Transaction ID : 1234
+Index : 4321
+Length of signature : 4
+Signature : 978e
+Enter the number of outputs : 1
+Output  1 :
+Number of coins : 98576
+Length of public key : 278
+Public key path : C:\Users\arnav\Desktop\duplicate\assignment_2\Keys\public.pem
+PS C:\Users\arnav\Desktop\duplicate\assignment_3> cd..
+
+
+
+
+#REVERSE PROCESS CORRESPONDING TO THIS INPUT IS DONE IN ASSIGNMENT 4
