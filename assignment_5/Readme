@@ -10,7 +10,7 @@ Target : 0000000f00000000000000000000000000000000000000000000000000000000
 Path of block body : C:\Users\arnav\Desktop\duplicate\assignment_5\sample.dat
 
 
-#OUTPUT
+#OUTPUT 1
 
 Nonce value :  92289121
 Timestamp :  1624642709543270300n
@@ -18,4 +18,15 @@ Hash obtained :  0000000ad6651d8bae36b4f807277fc2828f926d2e32cab084f5c36563456a1
 Time taken for the nonce to be calculated :  323044572400n
 PS C:\Users\arnav\Desktop\duplicate\assignment_5>
 
-#the time taken comes out to be approximately 5 min 23 sec.
+#the time taken is close to 5 min 23 sec.
+
+
+#OUTPUT 2
+
+Nonce value :  180501494
+Timestamp :  1624645717826047900n
+Hash obtained :  000000057e39416164f2cf5f424decebcaa8e67e5b18d2e4d8afba337e2abbe5
+Time taken for the nonce to be calculated :  699766559500n
+PS C:\Users\arnav\Desktop\duplicate\assignment_5>
+
+#here the time taken is around 11 min 40 sec.
