@@ -16,3 +16,5 @@ Timestamp :  1624642709543270300n
 Hash obtained :  0000000ad6651d8bae36b4f807277fc2828f926d2e32cab084f5c36563456a1e
 Time taken for the nonce to be calculated :  323044572400n
 PS C:\Users\arnav\Desktop\duplicate\assignment_5>
+
+#the time taken comes out to be approximately 5 min 23 sec.
