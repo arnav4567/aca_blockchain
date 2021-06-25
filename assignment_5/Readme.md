@@ -9,7 +9,6 @@ Hash of the parent block : 41a82375fb23603aeb2129e6d05e2b4eb63b576db435f8e4ff2ad
 Target : 0000000f00000000000000000000000000000000000000000000000000000000 
 Path of block body : C:\Users\arnav\Desktop\duplicate\assignment_5\sample.dat
 
-
 #OUTPUT
 
 Nonce value :  92289121
