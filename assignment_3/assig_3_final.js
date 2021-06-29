@@ -1,82 +1,97 @@
-const SHA256 = require('crypto-js/sha256');
 const readline = require('readline-sync');
 const now = require('nano-time');
 var fs = require('fs');
+const crypto = require('crypto');
+const { REPL_MODE_STRICT } = require('repl');
 
-function to32binary(n){
-    var tempw= BigInt(n).toString(2);
-    var temp='';
-    for(let i=0;i<32-tempw.length;i++)
-        temp+='0';
-    temp+=tempw;
-    return temp;
-}
-
-function to64binary(n){
-    var tempw= BigInt(n).toString(2);
-    var temp='';
-    for(let i=0;i<64-tempw.length;i++)
-        temp+='0';
-    temp+=tempw;
-    return temp;
-}
-
-var convertBase = function () {
-    function convertBase(baseFrom, baseTo) {
-        return function (num) {
-            return parseInt(num, baseFrom).toString(baseTo);
-        };
+function int_to_file(num,size = 4){
+    var arr = new Uint8Array(size);
+    if(size==4){
+        for(let i=0;i<4;i++){
+            arr[size-i-1] = num%256;
+            num/=256;
+        }
     }
-    convertBase.bin2dec = convertBase(2, 10);
-    convertBase.bin2hex = convertBase(2, 16);
-    convertBase.dec2bin = convertBase(10, 2);
-    convertBase.dec2hex = convertBase(10, 16);
-    convertBase.hex2bin = convertBase(16, 2);
-    convertBase.hex2dec = convertBase(16, 10);
-    return convertBase;
-}();
+    else{
+        for(let i=0;i<8;i++){
+            arr[size-i-1] = parseInt(num%256n);
+            num/=256n;
+        }
+    }
+    fs.appendFileSync("newfile.dat",arr);
+    return;
+}
+
+function hash_to_file(inp){
+    var arr = new Uint8Array(Buffer.from(inp,'hex'));
+    fs.appendFileSync("newfile.dat",arr);
+    return;
+}
+
+function text_to_file(inp){
+    let arr = new Uint8Array(Buffer.from(inp, 'utf-8'));
+    fs.appendFileSync("newfile.dat", arr);
+    return;
+}
+
+//----------------------------MAIN CODE STARTS-------------------------------//
 
 var n_inp = readline.question("Enter the number of inputs : ");
-var itemp = '';
-for(let i=1;i<=n_inp;i++){
-    console.log("Input ",i,": ");
-    var transaction_id = readline.question("Transaction ID : ");
-    var ind = readline.question("Index : ");
-    var length_sig = readline.question("Length of signature : ");
-    var signature = readline.question("Signature : ");
 
-    for(let i=0;i<256-convertBase.hex2bin(transaction_id).length;i++)
-        itemp+='0';
-    itemp+=convertBase.hex2bin(transaction_id);
-    
-    itemp+=to32binary(ind);
-    itemp+=to32binary(length_sig);
-    itemp+=convertBase.hex2bin(signature);
+var tr_id = Array(n_inp);
+var inds = Array(n_inp);
+var len_sig = Array(n_inp);
+var sigs = Array(n_inp);
+
+for(let i=0;i<n_inp;i++){
+    console.log("Input ",i+1,": ");
+    tr_id[i] = readline.question("Transaction ID : ");
+    if(tr_id[i].length<64)
+        console.log("Appending zeroes to the end since signature is not of length 64 ");
+    for(let j=tr_id[i].length;j<64;j++)
+        tr_id[i]=tr_id[i]+'0';
+
+    inds[i] = readline.question("Index : ");
+    len_sig[i] = readline.question("Length of signature : ");
+    sigs[i] = readline.question("Signature : ");
 }
 
 var n_out = readline.question("Enter the number of outputs : ");
-var otemp='';
-for(let i=1;i<=n_out;i++){
-    console.log("Output ",i,": ");
-    var n_coins = readline.question("Number of coins : ");
-    var len = readline.question("Length of public key : ");
-    var p_keypath = readline.question("Public key path : ");
 
-    otemp+=to64binary(n_coins);
-    otemp+=to32binary(len);
-    var pubkey = fs.readFileSync(p_keypath, 'utf8');
-    otemp+= pubkey.split('').map(c => c.charCodeAt().toString(2).padStart(8, '0')).join('');
+var coins = Array(n_out);
+var len_pkey = Array(n_inp);
+var pkey = Array(n_inp);
+
+for(let i=0;i<n_out;i++){
+    console.log("Output ",i+1,": ");
+    coins[i] = readline.question("Number of coins : ");
+    len_pkey[i] = readline.question("Length of public key : ");
+    var p_keypath = readline.question("Public key path : ");
+    pkey[i] = fs.readFileSync(p_keypath, 'utf8');
 }
 
 var tm = BigInt(now());
-var stamp = tm.toString(2);
+int_to_file(tm,8);
+int_to_file(n_inp);
+for(let i=0;i<n_inp;i++){
+    hash_to_file(tr_id[i]);
+    
+    int_to_file(inds[i]);
+    int_to_file(len_sig[i]);
+    hash_to_file(sigs[i]);
+}
+int_to_file(n_out);
+for(let i=0;i<n_out;i++){
+    int_to_file(BigInt(coins[i]),8);
+    int_to_file(len_pkey[i]);
+    text_to_file(pkey[i]);
+}
 
-var inpp = '';
-inpp+=to32binary(n_inp);
-var outt = to32binary(n_out);
+var alldata = fs.readFileSync("newfile.dat");
+var hash = crypto.createHash('sha256').update(alldata).digest('hex');
+hash = hash.toString();
 
-var finans =  stamp + inpp + itemp + outt + otemp;
+var newname = hash+".dat";
+fs.renameSync("newfile.dat",newname);
+console.log("Data written to : ",newname);
 
-var ans = SHA256(finans).toString();
-var topath = "./"+ans+".dat";
-fs.writeFileSync(topath, finans,"utf8");
