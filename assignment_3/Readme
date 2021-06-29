@@ -6,6 +6,9 @@ PS C:\Users\arnav\Desktop\duplicate\assignment_3> node assig_3_final.js
 Enter the number of inputs : 2
 Input  1 :       
 Transaction ID : e312
+Appending zeroes to the end since signature is not of length 64
+Index : 12345
+Length of signature : 4
 Signature : e43a127b
 Input  2 :
 Transaction ID : eba28475
