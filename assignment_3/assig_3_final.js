@@ -34,7 +34,7 @@ function text_to_file(inp){
     return;
 }
 
-//----------------------------MAIN CODE STARTS-------------------------------//
+//-----------------------------MAIN CODE STARTS--------------------------------//
 
 var n_inp = readline.question("Enter the number of inputs : ");
 
