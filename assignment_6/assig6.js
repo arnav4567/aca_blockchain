@@ -14,12 +14,11 @@ app.post('/hash', function(req,res){
     var hash = crypto.createHash('sha256').update(req.body.data).digest('hex');
     hash = hash.toString();
     res.json({'hash':hash});
-    console.log('Successful !');
     console.log(JSON.stringify({"hash":hash}),'\n');
 })
 
 app.listen(port, ()=>{
-    console.log('Server is at localhost:'+port);
+    console.log('Server is at localhost:',port,'\n');
 })
 
 
