@@ -1,6 +1,9 @@
 This code implements a basic local web server using Express.js.
 
-To execute it you need to send a POST request. This can be done by using -
+We send a POST request which contains JSON encoded data in the format - {"data":"some string"}.
+Following this, the endpoint calculates the SHA-256 hash of the given string(in hexadecimal) and returns it as JSON encoded data - {"hash":"<the hash value>"}
+
+To send the POST request, we can use -
 
 1. Command prompt, with the command `curl -H "Content-Type: application/json" -X POST http://localhost:8787/hash -d "{\"data\": \"This is a string\"}".`
 2. Some tool like 'Postman'. 

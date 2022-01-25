@@ -1,0 +1,1 @@
+### This assignment finds out the nonce for a string.

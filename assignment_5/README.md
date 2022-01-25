@@ -1,4 +1,13 @@
-  #I/O FOR ASSIGNMENT 5
+### Given a transaction block, this assignment deals with finding out the header for that block.
+### The block header we use is of 116 bytes. The structure is illustrated below:
+#### The first 4 bytes represent an integer (index of the block).
+#### The next 32 bytes represent the SHA256 hash of the parent block.
+#### The next 32 bytes represent the SHA256 hash of the block body.
+#### The next 32 bytes give the target value.
+#### Next, we have the timestamp which takes up 8 bytes.
+#### Finally, we have the nonce value given by a 64 bit integer.
+
+### This block header, along with the block body, constitutes a full block.
   
   
 #INPUT

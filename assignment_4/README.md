@@ -1,7 +1,10 @@
-#This is a sample transaction. Assignment 3 deals with converting this to a binary .dat file while assignment 4 converts this data back to readable form. Both of these operations are performed here.
+## Given below is a sample transaction. Assignment 3 deals with converting this to a binary .dat file while assignment 4 converts this data back to readable form. Both of these operations are performed here.
 
+### This assignment outputs all the details of the transaction given the binary `.dat` file. (The format of these details is stated in the previous assignment).
 
+### The data below is converted to a binary file, the code for which is present in assignment 3.
 
+```
 PS C:\Users\arnav\Desktop\duplicate\assignment_3> node assig_3_final.js
 Enter the number of inputs : 2
 Input  1 :       
@@ -22,10 +25,10 @@ Number of coins : 6755423
 Length of public key : 278
 Public key path : C:\Users\arnav\Desktop\duplicate\assignment_2\Keys\public.pem
 Data written to :  30c3cd3caffeddba392bf96ba71d02d8e16f531093e2f8380672d2aff84596f1.dat
+```
 
-
-#Data has been written. Now we verify the process by performing the reverse operation. Code for this is in assignment 4.
-
+### Data has been written. Now we verify the process by performing the reverse operation. Code for this is in assignment 4.
+```
 PS C:\Users\arnav\Desktop\duplicate\assignment_3> cd.. 
 PS C:\Users\arnav\Desktop\duplicate> cd assignment_4
 PS C:\Users\arnav\Desktop\duplicate\assignment_4> node assig4.js
@@ -47,14 +50,11 @@ Number of outputs :  1
 Output  1 :
 Number of coins :  6755423n
 Length of public key :  278
-Public Key :  -----BEGIN PUBLIC KEY-----
+Public Key :  ``-----BEGIN PUBLIC KEY-----
 MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCq4/Mm/gHVivTFEtbR0InNtXnl
 mr8HGR5LYVAnY3T2I5bk9gIm+b3amn47n8xSXwkLrg6AfvGneY2QY3cXhpStBV9j
 M6Yr64a9IeYxEHYsZU4/uAFA8sJjPcDapqCpv6lVhkpbz2HhcW8OcRteHSio3eft
 NtDyN509M7XtJBwtbQIDAQAB
 -----END PUBLIC KEY-----
-
-PS C:\Users\arnav\Desktop\duplicate\assignment_4>
-
-
-#This is the same as the data that we had given.
+```
+### This is the same as the data that we had given.
