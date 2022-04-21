@@ -18,12 +18,12 @@ It contains three files:
 
 
 ### [Assignment 3](./assignment_3)
-This assignment converts transaction data into a **binary file (.dat)**. It has the following file : 
+This assignment converts transaction data into a **binary file (.dat)**. Each input consists of the transaction ID, the signature, number of outputs(recipients), the number of coins for each output (64 bit) and the public key of sender. We also use the timestamp of the time of transaction. It has the following file : 
 
 + [assg3_data_to_binary.js](./assignment_3/assg3_data_to_binary.js) 
 
 ### [Assignment 4](./assignment_4)
-This does the opposite of assignment 3. It takes input in binary format and outputs transaction data in readable form. A sample output is also included. It has one file :
+This does the opposite of assignment 3. It takes input in binary format and outputs transaction data in readable form. A sample output is also included. This assignment outputs all the details of the transaction given the binary .dat file. (The format of these details is stated in the previous assignment). It has one file :
 
 + [assg4_binary_to_data.js](./assignment_4/assg4_binary_to_data.js)
 
