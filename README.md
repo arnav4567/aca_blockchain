@@ -4,7 +4,7 @@ This project was offered by Association for Computing Activities (ACA), IIT Kanp
 ### [Assignment 1](./assignment_1)
 This assignment was about **finding the nonce** for a given string i.e. it tries to find a positive number x such that when x is appended to the end of the given input, the SHA256 hash is less than the target. 
 It contains the following file:
-+ [Assg1.js](./Assignment1/Assg1.js): The `crypto-js` module is used in the program.
++ [Assg1.js](./assignment_1/Assg1.js): The `crypto-js` module is used in the program.
 
 
 ### [Assignment 2](./assignment_2)
